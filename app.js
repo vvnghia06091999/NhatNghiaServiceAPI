@@ -48,7 +48,7 @@ app.post('/pay',function(req,res){
         },
         "redirect_urls": {
             "return_url": "http://localhost:8080/controller/thanhToanPayPal",
-            "cancel_url":   "http://localhost:8080/controller/giohang"
+            "cancel_url": "http://localhost:8080/controller/errors"
         },
         "transactions": [{
             "item_list": {
