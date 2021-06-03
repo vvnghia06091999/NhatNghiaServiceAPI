@@ -92,20 +92,21 @@ app.get('/success', (req, res) => {
 });
 
 app.post('/sendMail',(req, res)=>{
-    var maBaoMat = req.body.maBaoMat;
+    var text = req.body.text;
+    var subject = req.body.subject;
     var email = req.body.email;
+    var html = req.body.html;
     var mailOptions = {
         from: 'nhatnghiaweb@gmail.com',
         to: email,
-        subject: 'Mã bảo mật từ NhatNghiaWeb',
-        text: 'Mã bảo mật của bạn là :' + maBaoMat
+        subject: subject,
+        text: text,
+        html: html,
       };
-    transporter.sendMail(mailOptions, function(error, info){
+    transporter.sendMail(mailOptions, function(error,info){
         if (error) {
-            console.log(error);
-            res.json('Error');
+            res.json('Error' , error);
         } else {
-            console.log(info);
             res.json("Gửi mail thành công");
         }
     });
