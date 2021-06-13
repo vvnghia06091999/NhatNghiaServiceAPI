@@ -14,7 +14,7 @@ paypal.configure({
 });
 
 var corsOptions = {
-    origin: "http://localhost:8080"
+    origin: "http://ec2-54-169-4-17.ap-southeast-1.compute.amazonaws.com:8080/"
 };
 
 var transporter = nodemailer.createTransport({
@@ -47,8 +47,8 @@ app.post('/pay',function(req,res){
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://localhost:8080/controller/thanhToanPayPal",
-            "cancel_url": "http://localhost:8080/controller/errors"
+            "return_url": "http://ec2-54-169-4-17.ap-southeast-1.compute.amazonaws.com:8080/DOAN_WEBSITEBUONBANONLINE_NHATNGHIA_K13/thanhToanPayPal",
+            "cancel_url": "http://ec2-54-169-4-17.ap-southeast-1.compute.amazonaws.com:8080/DOAN_WEBSITEBUONBANONLINE_NHATNGHIA_K13/errors"
         },
         "transactions": [{
             "item_list": {
