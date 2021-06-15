@@ -14,7 +14,7 @@ paypal.configure({
 });
 
 var corsOptions = {
-    origin: "http://ec2-13-212-49-158.ap-southeast-1.compute.amazonaws.com:8080"
+    origin: "http://ec2-54-179-250-239.ap-southeast-1.compute.amazonaws.com:8080"
 };
 
 var transporter = nodemailer.createTransport({
@@ -47,8 +47,8 @@ app.post('/pay',function(req,res){
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://ec2-13-212-49-158.ap-southeast-1.compute.amazonaws.com:8080/NhatNghiaWeb/thanhToanPayPal",
-            "cancel_url": "http://ec2-13-212-49-158.ap-southeast-1.compute.amazonaws.com:8080/NhatNghiaWeb/errors"
+            "return_url": "http://ec2-54-179-250-239.ap-southeast-1.compute.amazonaws.com:8080/NhatNghiaWeb/thanhToanPayPal",
+            "cancel_url": "http://ec2-54-179-250-239.ap-southeast-1.compute.amazonaws.com:8080/NhatNghiaWeb/errors"
         },
         "transactions": [{
             "item_list": {
@@ -68,7 +68,6 @@ app.post('/pay',function(req,res){
         } else {
             for(let i = 0;i < payment.links.length;i++){
                 if(payment.links[i].rel === 'approval_url'){
-                    console.log(payment.links[i].href);
                     res.json(payment.links[i].href);
                 }
             }
